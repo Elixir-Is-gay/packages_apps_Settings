@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2018 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="my_device_info_pref_screen"
+    android:title=" ">
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="about_info"
+        android:order="-5"
+        android:layout="@layout/about_phone_info"
+        android:selectable="false" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="elixir_about_info_header"
+        android:order="-4"
+        android:layout="@layout/about_phone_home_header"
+        android:selectable="false" />
+
+    <Preference
+        android:enabled="false"
+        android:order="-3" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="elixir_about_info_subheader"
+        android:order="-2"
+        android:layout="@layout/about_phone_home_subheader"
+        android:selectable="false" />
+
+    <PreferenceCategory
+        android:key="basic_info_category"
+        android:selectable="false"
+        android:layout="@layout/custom_preference_category"
+        android:title="@string/my_device_info_basic_info_category_title">
+
+        <!-- Device name -->
+        <com.android.settings.widget.ValidatedEditTextPreference
+            android:key="device_name"
+            android:icon="@drawable/ic_settings_display_acc"
+            settings:layout="@layout/essence_mainpage-oldstyle-top"
+            android:order="1"
+            android:title="@string/my_device_info_device_name_preference_title"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.deviceinfo.DeviceNamePreferenceController"
+            settings:enableCopying="true"/>
+
+        <!-- Android version -->
+        <Preference
+            android:key="firmware_version"
+            android:order="2"
+            android:icon="@drawable/ic_android_acc"
+            settings:layout="@layout/essence_mainpage-oldstyle-bot"
+            android:title="@string/firmware_version"
+            android:summary="@string/summary_placeholder"
+            android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
+            settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
+
+        <!-- Build number -->
+        <Preference
+            android:key="build_number"
+            android:icon="@drawable/ic_build_acc"
+            android:order="3"
+            settings:layout="@layout/essence_mainpage-oldstyle-top"
+            android:title="@string/build_number"
+            android:summary="@string/summary_placeholder"
+            settings:enableCopying="true"
+            settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
+
+        <!-- Extra information -->
+        <Preference
+            android:key="extra_status"
+            android:order="4"
+            android:icon="@drawable/ic_settings_system_dashboard_acc"
+            settings:layout="@layout/essence_mainpage-oldstyle-bot"
+            android:title="Device Status"
+            android:summary="Basic Info, IMEI, etc"
+            android:fragment="com.android.settings.deviceinfo.aboutphone.ExtraDeviceInfoFragment" />
+
+        <!-- Device up time -->
+        <Preference
+            android:key="up_time"
+            android:icon="@drawable/ic_uptime"
+            settings:layout="@layout/essence_mainpage-oldstyle-top"
+            android:order="5"
+            android:title="@string/status_up_time"
+            android:summary="@string/summary_placeholder"
+            android:selectable="false"/>
+      
+        <!-- Legal information -->
+        <Preference
+            android:key="legal_container"
+            android:order="6"
+            android:icon="@drawable/ic_doc"
+            settings:layout="@layout/essence_mainpage-oldstyle-bot"
+            android:summary="Google legal, Credits and licences"
+            android:title="@string/legal_information"
+            android:fragment="com.android.settings.LegalSettings"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

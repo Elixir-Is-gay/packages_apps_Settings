@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2019 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title=" "
+    settings:keywords="@string/keywords_android_version">
+
+    <!-- Elixir logo -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="about_elixir"
+        android:layout="@layout/about_elixir"
+        android:selectable="true" 
+	    settings:controller="com.android.settings.deviceinfo.firmwareversion.ElixirLogoPreferenceController"/>
+
+    <Preference
+        android:key="xd_build_status"
+        android:title="@string/xd_build_status"
+        android:summary="@string/xd_summary_placeholder"
+        android:icon="@drawable/xd_build"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.BuildMaintainerPreferenceController"
+        settings:layout="@layout/xd_pref_card_sin-accent"/>
+
+    <!-- Android version -->
+    <Preference
+        android:key="os_firmware_version"
+        android:title="@string/firmware_version"
+	    android:icon="@drawable/ic_android_acc"
+        settings:layout="@layout/essence_mainpage-oldstyle-top"  
+	    android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:searchable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
+
+    <!-- Security patch -->
+    <Preference
+	    android:key="security_key"
+	    android:icon="@drawable/security"
+        settings:layout="@layout/essence_mainpage-oldstyle-mid" 
+        android:title="@string/security_patch"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
+
+    <!-- Project Elixir version -->
+    <Preference
+        android:key="elixir_version"
+        android:title="@string/elixir_version"
+        android:icon="@drawable/ic_elixir"
+        settings:layout="@layout/essence_mainpage-oldstyle-bot"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:searchable="false"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.ElixirVersionDetailPreferenceController"/>
+
+    <!-- Device name -->
+    <Preference
+	    android:key="about_device_name"
+	    android:icon="@drawable/device_img"
+        settings:layout="@layout/essence_mainpage-oldstyle-top" 
+        android:title="@string/about_device_name"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.AboutDeviceNamePreferenceController"/>
+	
+    <!-- Kernel -->
+    <Preference
+        android:key="kernel_version"
+        android:title="@string/kernel_version"
+	    android:icon="@drawable/kernel"
+        settings:layout="@layout/essence_mainpage-oldstyle-mid" 
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+	    settings:controller="com.android.settings.deviceinfo.firmwareversion.KernelVersionPreferenceController"/>
+
+    <!-- SELinux -->
+    <Preference
+	    android:key="selinux_status"
+	    android:icon="@drawable/shield"
+        settings:layout="@layout/essence_mainpage-oldstyle-bot" 
+        android:title="@string/selinux_status"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SelinuxStatusPreferenceController"/>
+
+    <!-- Mainline module version
+    <Preference
+        android:key="module_version"
+        android:title="@string/module_version"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"/ -->
+
+    <!-- Baseband -->
+    <Preference
+        android:key="base_band"
+	    android:title="@string/baseband_version"
+	    android:icon="@drawable/baseband"
+        settings:layout="@layout/essence_mainpage-oldstyle-top" 
+        android:summary="@string/summary_placeholder"
+	    settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
+
+    <!-- Build date -->
+    <Preference
+        android:key="os_build_date"
+        android:title="@string/build_date"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+	    android:icon="@drawable/date"
+        settings:layout="@layout/essence_mainpage-oldstyle-mid" 
+	    settings:controller="com.android.settings.deviceinfo.firmwareversion.ElixirBuildDatePreferenceController"/>
+
+    <Preference
+        android:title="@string/radio_info_title"
+        android:key="radio_info_settings"
+	    android:summary="Phone details, IMEI, etc"
+	    android:icon="@drawable/antenna"
+        settings:layout="@layout/essence_mainpage-oldstyle-bot" >
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.phone"
+                android:targetClass="com.android.phone.settings.RadioInfo" />
+    </Preference>
+
+    <!-- Build number -->
+    <!--Preference
+        android:key="os_build_number"
+        android:title="@string/build_number"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/>-->
+
+</PreferenceScreen>
